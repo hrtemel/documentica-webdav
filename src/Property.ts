@@ -80,9 +80,9 @@ export default class Property implements IProperty{
             this._xmlvalue = undefined;
             return;
         }
-        if (!(value instanceof NodeList)) {
+        /*if (!(value instanceof NodeList)) {
             throw new Exception('xmlvalue must be an instance of NodeList', Exception.WRONG_TYPE);
-        }
+        }*/
         this._xmlvalue = value;
     };
 

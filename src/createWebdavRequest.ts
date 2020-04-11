@@ -1,5 +1,7 @@
 import Multistatus from './Multistatus';
 import { ExtChildNode, IHeaders } from './types';
+// @ts-ignore
+import {DOMParser } from 'xmldom';
 
 export type WebdavCallback=(status:number,body:any,statusText?:string,resourceName?:string,headers?:Headers)=>void;
 
@@ -102,7 +104,7 @@ export function createWebdavRequestFetch({
             .then(resp =>{
                 (window as any).resp=response;
                 if (responseType=="xml"){
-                    let xml=new window.DOMParser().parseFromString(resp as any, "text/xml");
+                    let xml=new DOMParser().parseFromString(resp as any, "text/xml");
                     if (multistatus){
                         let body=undefined;
                         for (var counter = 0; counter < xml.childNodes.length; counter++) {

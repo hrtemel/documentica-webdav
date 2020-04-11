@@ -27,7 +27,7 @@ export default function acl({
         fail,
         headers,
         multistatus:true,
-        responseType:'xml',
+        responseType:'text',
         body:`<?xml version="1.0" encoding="UTF-8"?>
         <d:acl xmlns:d="DAV:">
             ${aces.map(ace=>`<d:ace>
@@ -35,7 +35,7 @@ export default function acl({
                     <d:href>${ace.principal}</d:href>
                 </d:principal>
                 <d:${ace.grantdeny ||"grant"}>
-                    ${ace.privileges.map( priv =>"<d:privilege><d:"+priv+"></d:"+priv+"></d:privilege>").join("/n")}
+                    ${ace.privileges.map( priv =>"<d:privilege><d:"+priv+"></d:"+priv+"></d:privilege>").join("\n")}
                 </d:${ace.grantdeny ||"grant"}>
                 ${ace.password?"<d:password>"+ace!.password+"</d:password>":""}
                 ${ace.expirationDate?"<d:expirationDate>"+ace!.expirationDate+"</d:expirationDate>":""}

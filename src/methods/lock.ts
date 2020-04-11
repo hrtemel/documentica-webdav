@@ -1,6 +1,8 @@
 import {createWebdavRequest} from "../createWebdavRequest";
 import { WebdavMethodParams } from "../types";
 import { WebdavDepthType } from "../Response";
+// @ts-ignore
+import {DOMParser } from 'xmldom';
 
 export interface ILockDiscovery{
     locktype:string,
