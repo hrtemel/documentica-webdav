@@ -1,6 +1,6 @@
 {
   "name": "@documentica/webdav",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Documentica Webdav Client",
   "scripts": {
     "build": "npm run build:tsc",
